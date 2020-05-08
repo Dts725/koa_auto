@@ -1,0 +1,19 @@
+{
+  "name": "node_koajs",
+  "version": "1.0.0",
+  "description": "koa 测试",
+  "main": "index.js",
+  "dependencies": {
+    "koa": "^2.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "tset"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ff"
+  },
+  "author": "",
+  "license": "ISC"
+}
