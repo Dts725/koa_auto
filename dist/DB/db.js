@@ -1,6 +1,7 @@
 var mysql = require('mysql');
-var conf = require("./Config").conf;
-var pool = mysql.createPool(conf);
+var _a = require("./Config"), conf = _a.conf, YZX = _a.YZX;
+var pool = mysql.createPool(YZX);
+exports.pool = function (str) { return pool.escape(str); };
 exports.db = function (sql) {
     return new Promise(function (resolve) {
         pool.getConnection(function (err, connection) {
@@ -23,4 +24,4 @@ function end() {
     pool.end(function (err) {
     });
 }
-//# sourceMappingURL=db.js.map
+//# sourceMappingURL=DB.js.map

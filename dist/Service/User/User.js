@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 exports.User = function (ctx) { return __awaiter(_this, void 0, void 0, function () {
-    var db, sql, name;
+    var db, sql;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -44,8 +44,6 @@ exports.User = function (ctx) { return __awaiter(_this, void 0, void 0, function
                 return [4, ctx.db(sql)];
             case 1:
                 db = _a.sent();
-                name = db[0];
-                console.log("调用数", name);
                 ctx.body = db;
                 return [2];
         }

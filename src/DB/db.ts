@@ -1,12 +1,14 @@
 const mysql = require('mysql');
-let { conf } = require("./Config")
-var pool = mysql.createPool(conf);
-
+let { conf, YZX } = require("./Config")
+// var pool = mysql.createPool(conf);
+let pool = mysql.createPool(YZX);
+exports.pool = (str: any) => pool.escape(str);
 exports.db = function (sql: String) {
     // 使用连接
     return new Promise(resolve => {
         pool.getConnection(function (err: any, connection: any) {
             if (err) throw err;
+            // let en = pool.escape(sql)
             connection.query(sql, function (err: any, result: any, rows: any) {
                 // 使用连接执行查询
                 if (err) throw err;

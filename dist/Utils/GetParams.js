@@ -13,8 +13,11 @@ exports.GetParams = function (ctx) {
     return new Promise(function (resolve, reject) {
         var path = ctx.request.path;
         var query = ctx.query;
-        var method = ctx.method;
+        var method = ctx.method.toLowerCase();
         var url = ctx.url;
+        if (method !== "get") {
+            query = ctx.request.body;
+        }
         var pam = { path: path, query: __assign({}, query), method: method, url: url };
         return resolve(pam);
     });

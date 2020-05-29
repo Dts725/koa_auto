@@ -7,4 +7,13 @@ exports.conf = {
     database: "tao_bao",
     connectTimeout: 10000
 };
+exports.YZX = {
+    host: "47.111.116.44",
+    port: 3306,
+    connectionLimit: 10,
+    user: "testyzxfb_shyunh",
+    password: "s3KZwKWGSKwDDHGL",
+    database: "testyzxfb_shyunh",
+    connectTimeout: 10000
+};
 //# sourceMappingURL=Config.js.map

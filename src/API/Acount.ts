@@ -1,9 +1,18 @@
 
 let Router = require('koa-router');
 let router = new Router();
-function acount() {
+let formRouter = new Router();
+let basicUrl = '/acount';
+router.all('/user', require("../Service/Acount/User/User").User);
+router.all('/login', require("../Service/Acount/Login/Login").Login);
 
-}
-router.all('/User', require("../Service/d").User)
-router.use("/acount", () => router)
-exports.api = router
+
+
+
+
+
+
+
+
+formRouter.use(basicUrl, router.routes())
+exports.acount = formRouter.routes();

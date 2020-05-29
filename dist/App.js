@@ -36,21 +36,24 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 var Koa = require('koa');
-var app = new Koa();
 var System = require('systemjs');
-var api = require("./API/Acount").api;
-var formRouter = require('koa-router');
-app.context.GetParams = require("./Utils/d").GetParams;
-app.context.db = require("./DB/d").db;
+var KoaOnerror = require('Koa-onerror');
+var koaLogger = require('koa-logger');
+var acount = require("./API/Acount").acount;
+var bodyParser = require('koa-bodyparser');
+var app = new Koa();
+KoaOnerror(app);
+app.use(koaLogger());
+app.use(bodyParser());
+app.context.GetParams = require("./Utils/GetParams").GetParams;
+app.context.db = require("./DB/db").db;
+app.context.pool = require("./DB/db").pool;
 app.use(function (ctx, next) { return __awaiter(_this, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0:
-                console.log("第一次进入");
-                return [4, next()];
+            case 0: return [4, next()];
             case 1:
                 _a.sent();
-                console.log("第二次退出");
                 return [2];
         }
     });
@@ -58,21 +61,17 @@ app.use(function (ctx, next) { return __awaiter(_this, void 0, void 0, function 
 app.use(function (ctx, next) { return __awaiter(_this, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0:
-                console.log("第二次进入");
-                return [4, next()];
+            case 0: return [4, next()];
             case 1:
                 _a.sent();
-                console.log("第一次退出");
                 ctx.body = JSON.stringify(ctx.body);
                 return [2];
         }
     });
 }); });
-new formRouter().use('/acount', api.routes());
-app.use(api.routes());
+app.use(acount);
 app.use(function (ctx, next) {
-    ctx.body = "404";
+    ctx.body = "404" + ctx.parth;
 });
 app.on('error', function (err, ctx) {
     ctx.body = err;

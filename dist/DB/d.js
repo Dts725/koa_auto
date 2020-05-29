@@ -1,4 +1,4 @@
 module.exports = {
-    db: require("./db").db
+    db: require("./DB").db
 };
 //# sourceMappingURL=d.js.map

@@ -1,8 +1,9 @@
 var Router = require('koa-router');
 var router = new Router();
-function acount() {
-}
-router.all('/User', require("../Service/d").User);
-router.use("/acount", function () { return router; });
-exports.api = router;
+var formRouter = new Router();
+var basicUrl = '/acount';
+router.all('/user', require("../Service/Acount/User/User").User);
+router.all('/login', require("../Service/Acount/Login/Login").Login);
+formRouter.use(basicUrl, router.routes());
+exports.acount = formRouter.routes();
 //# sourceMappingURL=Acount.js.map
