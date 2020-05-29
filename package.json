@@ -4,15 +4,30 @@
   "description": "koa 测试",
   "main": "index.js",
   "dependencies": {
-    "koa": "^2.11.0"
+    "@koa/router": "^8.0.8",
+    "@types/node": "^13.13.5",
+    "koa": "^2.11.0",
+    "koa-router": "^8.0.8",
+    "mysql": "^2.18.1",
+    "systemjs": "^6.3.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "pm2": "^4.4.0"
+  },
   "scripts": {
-    "test": "tset"
+    "tsc": " tsc -watch",
+    "dev": "pm2 start ./dist/App.js",
+    "node": "nodemon ./dist/App.js",
+    "monit": "pm2 monit",
+    "list": "pm2  list",
+    "stop": "pm2 stop App",
+    "restart": "pm2 restart App",
+    "delete": "pm2 delete App",
+    "log": " pm2 logs"
   },
   "repository": {
     "type": "git",
-    "url": "ff"
+    "url": "https://github.com/taobaoqiang/koa_auto.git"
   },
   "author": "",
   "license": "ISC"
